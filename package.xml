@@ -3,23 +3,36 @@
 <package format="3">
   <name>sim_mobile_robot</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="abdur@todo.todo">abdur</maintainer>
-  <license>TODO: License declaration</license>
+  <description>ROS 2 simulated four-wheel mobile robot with Gazebo, LiDAR, RViz2, telemetry, services, actions, and keyboard teleoperation.</description>
+  <maintainer email="abdur@users.noreply.github.com">abdur-netizen</maintainer>
+  <license>Apache-2.0</license>
 
-  <!-- Core ROS 2 Python and Message Dependencies -->
-  <depend>rclpy</depend>
-  <depend>geometry_msgs</depend>
-  <depend>sensor_msgs</depend>
-  <depend>std_srvs</depend>
-  <depend>rclpy_action</depend>
+  <buildtool_depend>ament_python</buildtool_depend>
 
-  <!-- Gazebo Ignition Execution Dependencies -->
+  <!-- ROS 2 nodes and message interfaces -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>turtlesim</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>rosgraph_msgs</exec_depend>
+  <exec_depend>tf2_msgs</exec_depend>
+
+  <!-- Launch system and robot visualization -->
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <!-- Gazebo Sim and ROS-Gazebo bridges -->
   <exec_depend>ros_gz_sim</exec_depend>
   <exec_depend>ros_gz_bridge</exec_depend>
   <exec_depend>ros_gz_interfaces</exec_depend>
 
-  <!-- Testing Dependencies -->
+  <!-- Linting and tests -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
