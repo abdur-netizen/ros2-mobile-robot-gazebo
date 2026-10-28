@@ -19,7 +19,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='abdur-netizen',
-    maintainer_email='abdur@users.noreply.github.com',
+    maintainer_email='abdur@todo.todo',
     description='ROS 2 simulated mobile robot with Gazebo and LiDAR',
     license='Apache-2.0',
     tests_require=['pytest'],
