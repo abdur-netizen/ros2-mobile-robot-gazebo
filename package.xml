@@ -4,7 +4,7 @@
   <name>sim_mobile_robot</name>
   <version>0.0.0</version>
   <description>ROS 2 simulated four-wheel mobile robot with Gazebo, LiDAR, RViz2, telemetry, services, actions, and keyboard teleoperation.</description>
-  <maintainer email="abdur@users.noreply.github.com">abdur-netizen</maintainer>
+  <maintainer email="abdur@todo.todo">abdur-netizen</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
