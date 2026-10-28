@@ -248,7 +248,7 @@ Creates a node named `headlight_service` and registers `/toggle_headlights` with
 
 ### `sim_mobile_robot/patrol.py`
 
-Creates an action server on `/patrol_routine` using `turtlesim/action/RotateAbsolute`. It publishes angular velocity 0.5 rad/s to `/cmd_vel`, sends five progress feedback updates with one-second sleeps, checks for cancellation during the loop, and publishes a zero angular command after the normal loop. Limitations: the requested `theta` is ignored; the feedback is a step counter expressed as a float; `time.sleep` blocks the executor; and cancellation returns before publishing a stop command. Treat this as a prototype only, not a reliable safety-critical patrol controller.
+Creates an asynchronous action server on `/patrol_routine` using `turtlesim/action/RotateAbsolute`. It publishes angular velocity 0.5 rad/s to `/cmd_vel`, sends five feedback updates using the interface's valid `delta` field, and awaits between updates so cancellation can be processed. A `finally` block publishes a zero `Twist` when the action completes or is canceled. Limitations: the requested `theta` is still ignored, and the fixed-duration rotation is not a true rotate-to-angle controller. Treat this as a prototype only, not a reliable safety-critical patrol controller.
 
 ### `sim_mobile_robot/teleop.py`
 
@@ -308,7 +308,7 @@ These tests cover key-to-velocity mapping only. They do not replace an end-to-en
 ## Known limitations and next steps
 
 - The headlight service is not connected to a simulated light.
-- The patrol action uses a Turtlesim action type and has cancellation/goal-handling limitations.
+- The patrol action uses a Turtlesim action type and does not yet use the requested angle to stop at a target heading.
 - Keyboard control is terminal-based and not safety-rated.
 - The launch stack and Gazebo plugin configuration must be tested on the target ROS 2/Gazebo installation.
 - Add screenshots or short recordings of successful launch, RViz2, LiDAR data, odometry, and keyboard control after runtime validation.
